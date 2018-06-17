@@ -1,0 +1,158 @@
+﻿<Page x:Class="TFM_MVVM.Views.TeacherView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TFM_MVVM.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="TeacherView">
+
+    <Grid Margin="10,0,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Nuevo profesor</Label>
+            <Label Grid.Row="1" Grid.Column="0" >Nombre</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="20" ></TextBox>
+            <Label Grid.Row="2" Grid.Column="0" >Apellidos</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="20" ></TextBox>
+
+            <Label Grid.Row="3" Grid.Column="0" >Asignaturas</Label>
+            <Label Grid.Row="3" Grid.Column="2" >Asignaturas asignadas</Label>
+
+            <ListBox Name="subjectsListBox" Grid.RowSpan="2" Grid.Column="0" Grid.Row="4" 
+                     ItemsSource="{Binding subjectsCollection}"
+                     DisplayMemberPath="title">
+                <!--<ListBoxItem>Mike</ListBoxItem>
+                <ListBoxItem>Lisa</ListBoxItem>
+                <ListBoxItem>John</ListBoxItem>
+                <ListBoxItem>Mary</ListBoxItem>-->
+                
+            </ListBox>
+            <Button Grid.Column="1" Grid.Row="4" Height="30" Click="addSubject">Add</Button>
+            <Button Grid.Column="1" Grid.Row="5" Height="30" Click="removeSubject">Remove</Button>
+            <ListBox Name="assignedSubjectsListBox" Grid.RowSpan="2" Grid.Column="2" Grid.Row="4">
+                
+            </ListBox>
+            <Button Grid.Column="2" Grid.Row="6" Height="30">Save</Button>
+
+
+        </Grid>
+        <FlowDocumentReader Grid.Column="1" Grid.Row="0">
+            
+            <FlowDocument>
+
+                <Table CellSpacing="5">
+
+                    <Table.Columns>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                    </Table.Columns>
+
+                    <TableRowGroup>
+
+                        <!-- Header row for the table. -->
+                        <TableRow Background="LightGoldenrodYellow">
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">ID</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Nombre</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Apellidos</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Asignaturas</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                        <!-- Four data rows for the inner planets. -->
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Mercury</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>57,910,000 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>4,880 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>3.30e23 kg</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Background="lightgray">
+                            <TableCell>
+                                <Paragraph>Venus</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>108,200,000 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>12,103.6 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>4.869e24 kg</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Earth</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>149,600,000 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>12,756.3 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>5.972e24 kg</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Background="lightgray">
+                            <TableCell>
+                                <Paragraph>Mars</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>227,940,000 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>6,794 km</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>6.4219e23 kg</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                    </TableRowGroup>
+                </Table>
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button Grid.Column="1" Grid.Row="1" Width="50" HorizontalAlignment="Right" Click="returnMenuView">Volver</Button>
+    </Grid>
+
+</Page>

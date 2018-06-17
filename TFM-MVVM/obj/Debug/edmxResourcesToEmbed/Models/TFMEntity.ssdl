@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TFMEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="STUDENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STUDENT_SUBJECT">
+    <Key>
+      <PropertyRef Name="ID_SUBJECT" />
+      <PropertyRef Name="ID_STUDENT" />
+    </Key>
+    <Property Name="ID_SUBJECT" Type="int" Nullable="false" />
+    <Property Name="ID_STUDENT" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUBJECT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="COURSE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TEACHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TEACHER_SUBJECT">
+    <Key>
+      <PropertyRef Name="ID_SUBJECT" />
+      <PropertyRef Name="ID_TEACHER" />
+    </Key>
+    <Property Name="ID_SUBJECT" Type="int" Nullable="false" />
+    <Property Name="ID_TEACHER" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__STUDENT_S__ID_ST__2C3393D0">
+    <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="STUDENT_SUBJECT" Type="Self.STUDENT_SUBJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENT_SUBJECT">
+        <PropertyRef Name="ID_STUDENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__STUDENT_S__ID_SU__2B3F6F97">
+    <End Role="SUBJECT" Type="Self.SUBJECT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="STUDENT_SUBJECT" Type="Self.STUDENT_SUBJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUBJECT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STUDENT_SUBJECT">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TEACHER_S__ID_SU__2D27B809">
+    <End Role="SUBJECT" Type="Self.SUBJECT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TEACHER_SUBJECT" Type="Self.TEACHER_SUBJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUBJECT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TEACHER_SUBJECT">
+        <PropertyRef Name="ID_SUBJECT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TEACHER_S__ID_TE__2E1BDC42">
+    <End Role="TEACHER" Type="Self.TEACHER" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TEACHER_SUBJECT" Type="Self.TEACHER_SUBJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEACHER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TEACHER_SUBJECT">
+        <PropertyRef Name="ID_TEACHER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TFMEntitiesModelStoreContainer">
+    <EntitySet Name="STUDENT" EntityType="Self.STUDENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STUDENT_SUBJECT" EntityType="Self.STUDENT_SUBJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUBJECT" EntityType="Self.SUBJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEACHER" EntityType="Self.TEACHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEACHER_SUBJECT" EntityType="Self.TEACHER_SUBJECT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__STUDENT_S__ID_ST__2C3393D0" Association="Self.FK__STUDENT_S__ID_ST__2C3393D0">
+      <End Role="STUDENT" EntitySet="STUDENT" />
+      <End Role="STUDENT_SUBJECT" EntitySet="STUDENT_SUBJECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__STUDENT_S__ID_SU__2B3F6F97" Association="Self.FK__STUDENT_S__ID_SU__2B3F6F97">
+      <End Role="SUBJECT" EntitySet="SUBJECT" />
+      <End Role="STUDENT_SUBJECT" EntitySet="STUDENT_SUBJECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEACHER_S__ID_SU__2D27B809" Association="Self.FK__TEACHER_S__ID_SU__2D27B809">
+      <End Role="SUBJECT" EntitySet="SUBJECT" />
+      <End Role="TEACHER_SUBJECT" EntitySet="TEACHER_SUBJECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEACHER_S__ID_TE__2E1BDC42" Association="Self.FK__TEACHER_S__ID_TE__2E1BDC42">
+      <End Role="TEACHER" EntitySet="TEACHER" />
+      <End Role="TEACHER_SUBJECT" EntitySet="TEACHER_SUBJECT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

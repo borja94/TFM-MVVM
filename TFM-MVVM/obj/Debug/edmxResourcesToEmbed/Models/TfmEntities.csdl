@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TFMEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="STUDENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SUBJECT" Relationship="Self.STUDENT_SUBJECT" FromRole="STUDENT" ToRole="SUBJECT" />
+  </EntityType>
+  <EntityType Name="SUBJECT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COURSE" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STUDENT" Relationship="Self.STUDENT_SUBJECT" FromRole="SUBJECT" ToRole="STUDENT" />
+    <NavigationProperty Name="TEACHER" Relationship="Self.TEACHER_SUBJECT" FromRole="SUBJECT" ToRole="TEACHER" />
+  </EntityType>
+  <EntityType Name="TEACHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SUBJECT" Relationship="Self.TEACHER_SUBJECT" FromRole="TEACHER" ToRole="SUBJECT" />
+  </EntityType>
+  <Association Name="STUDENT_SUBJECT">
+    <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="*" />
+    <End Role="SUBJECT" Type="Self.SUBJECT" Multiplicity="*" />
+  </Association>
+  <Association Name="TEACHER_SUBJECT">
+    <End Role="SUBJECT" Type="Self.SUBJECT" Multiplicity="*" />
+    <End Role="TEACHER" Type="Self.TEACHER" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="TFMEntitiesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="STUDENT" EntityType="Self.STUDENT" />
+    <EntitySet Name="SUBJECT" EntityType="Self.SUBJECT" />
+    <EntitySet Name="TEACHER" EntityType="Self.TEACHER" />
+    <AssociationSet Name="STUDENT_SUBJECT" Association="Self.STUDENT_SUBJECT">
+      <End Role="STUDENT" EntitySet="STUDENT" />
+      <End Role="SUBJECT" EntitySet="SUBJECT" />
+    </AssociationSet>
+    <AssociationSet Name="TEACHER_SUBJECT" Association="Self.TEACHER_SUBJECT">
+      <End Role="SUBJECT" EntitySet="SUBJECT" />
+      <End Role="TEACHER" EntitySet="TEACHER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

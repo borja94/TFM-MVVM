@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TFMEntitiesModelStoreContainer" CdmEntityContainer="TFMEntitiesEntities">
+    <EntitySetMapping Name="STUDENT">
+      <EntityTypeMapping TypeName="TFMEntitiesModel.STUDENT">
+        <MappingFragment StoreEntitySet="STUDENT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBJECT">
+      <EntityTypeMapping TypeName="TFMEntitiesModel.SUBJECT">
+        <MappingFragment StoreEntitySet="SUBJECT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="COURSE" ColumnName="COURSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEACHER">
+      <EntityTypeMapping TypeName="TFMEntitiesModel.TEACHER">
+        <MappingFragment StoreEntitySet="TEACHER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="STUDENT_SUBJECT" TypeName="TFMEntitiesModel.STUDENT_SUBJECT" StoreEntitySet="STUDENT_SUBJECT">
+      <EndProperty Name="STUDENT">
+        <ScalarProperty Name="ID" ColumnName="ID_STUDENT" />
+      </EndProperty>
+      <EndProperty Name="SUBJECT">
+        <ScalarProperty Name="ID" ColumnName="ID_SUBJECT" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TEACHER_SUBJECT" TypeName="TFMEntitiesModel.TEACHER_SUBJECT" StoreEntitySet="TEACHER_SUBJECT">
+      <EndProperty Name="SUBJECT">
+        <ScalarProperty Name="ID" ColumnName="ID_SUBJECT" />
+      </EndProperty>
+      <EndProperty Name="TEACHER">
+        <ScalarProperty Name="ID" ColumnName="ID_TEACHER" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

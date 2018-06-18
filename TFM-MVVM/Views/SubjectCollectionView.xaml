@@ -1,0 +1,35 @@
+﻿<Page x:Class="TFM_MVVM.Views.SubjectCollectionView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TFM_MVVM.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="SubjectCollectionView">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <ListView Name="subjectCollectionList" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding subjectsCollection}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Titulo" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Curso" DisplayMemberBinding="{Binding Course}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Column="0" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="removeSubject">Borrar</Button>
+        <Button Grid.Column="1" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="editSubject">Editar</Button>
+        <Button Grid.Column="2" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="newSubject">Nuevo</Button>
+
+    </Grid>
+</Page>

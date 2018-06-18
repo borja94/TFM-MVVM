@@ -7,12 +7,12 @@ using TFM_MVVM.Models;
 
 namespace TFM_MVVM.Presenters
 {
-    public class TeacherPresenter
+    public class TeacherFormPresenter
     {
         private readonly TeacherDao _teacherDao;
         private readonly SubjectDao _subjectDao;
 
-        public TeacherPresenter()
+        public TeacherFormPresenter()
         {
             _teacherDao = new TeacherDao();
             _subjectDao = new SubjectDao();
@@ -26,16 +26,6 @@ namespace TFM_MVVM.Presenters
         public void updateNewTeacher(Teacher teacher)
         {
             _teacherDao.update(teacher);
-        }
-
-        public IEnumerable<Teacher> getAllTeachers()
-        {
-            return _teacherDao.getAll();
-        }
-
-        public void removeTeacher(int id)
-        {
-            _teacherDao.remove(id);
         }
 
         public IEnumerable<Subject> GetAllSubjects() {

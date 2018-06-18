@@ -88,14 +88,38 @@
     <Compile Include="Models\SubjectDao.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\TeacherDao.cs" />
-    <Compile Include="Presenters\SubjectPresenter.cs" />
-    <Compile Include="Presenters\StudentPresenter.cs" />
-    <Compile Include="Presenters\TeacherPresenter.cs" />
-    <Compile Include="Views\SubjectView.xaml.cs">
-      <DependentUpon>SubjectView.xaml</DependentUpon>
+    <Compile Include="Presenters\StudentCollectionPresenter.cs" />
+    <Compile Include="Presenters\SubjectCollectionPresenter.cs" />
+    <Compile Include="Presenters\TeacherCollectionPresenter.cs" />
+    <Compile Include="Presenters\StudentFormPresenter.cs" />
+    <Compile Include="Presenters\SubjectFormPresenter.cs" />
+    <Compile Include="Presenters\TeacherFormPresenter.cs" />
+    <Compile Include="Views\IStudentFormView.cs" />
+    <Compile Include="Views\ISubjectFormView.cs" />
+    <Compile Include="Views\ITeacherFormView.cs" />
+    <Compile Include="Views\StudentCollectionView.xaml.cs">
+      <DependentUpon>StudentCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubjectCollectionView.xaml.cs">
+      <DependentUpon>SubjectCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherCollectionView.xaml.cs">
+      <DependentUpon>TeacherCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentFormView.xaml.cs">
+      <DependentUpon>StudentFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubjectFormView.xaml.cs">
+      <DependentUpon>SubjectFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeacherFormView.xaml.cs">
+      <DependentUpon>TeacherFormView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubjectView.xaml.cs">
+      <DependentUpon>SubjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeacherView.xaml.cs">
       <DependentUpon>TeacherView.xaml</DependentUpon>
@@ -119,11 +143,35 @@
       <DependentUpon>MenuView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\SubjectView.xaml">
+    <Page Include="Views\StudentCollectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\SubjectCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TeacherCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubjectFormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TeacherFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StudentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubjectView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

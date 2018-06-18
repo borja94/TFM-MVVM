@@ -29,6 +29,11 @@ namespace TFM_MVVM.Models
                 con.Open();
 
                 cmd.ExecuteNonQuery();
+                removeAllStudentSubjects(student.Id);
+                foreach (Subject subject in student.Subjects)
+                {
+                    insertSubjectStudent(student.Id, subject.Id);
+                }
             }
             finally
             {
@@ -51,6 +56,12 @@ namespace TFM_MVVM.Models
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
+
+                removeAllStudentSubjects(student.Id);
+                foreach (Subject subject in student.Subjects)
+                {
+                    insertSubjectStudent(student.Id, subject.Id);
+                }
             }
             finally
             {

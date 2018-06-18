@@ -33,6 +33,12 @@ namespace TFM_MVVM.Models
                 con.Open();
 
                 cmd.ExecuteNonQuery();
+
+                removeAllTeacherSubjects(teacher.Id);
+                foreach (Subject subject in teacher.Subjects)
+                {
+                    insertSubjectTeacher(teacher.Id, subject.Id);
+                }
             }
             finally
             {

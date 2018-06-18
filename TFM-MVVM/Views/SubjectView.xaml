@@ -18,55 +18,13 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid Grid.Column="1" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0">Nueva asignatura</Label>
-            <Label Grid.Row="1" Grid.Column="0" >Titulo</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="20"
-                     Text="{Binding SubjectTitle}"></TextBox>
-            <Label Grid.Row="2" Grid.Column="0" >Curso</Label>
-            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="20" 
-                     Text="{Binding SubjectCourse}"></TextBox>
-
-            <Button Grid.Column="2" Grid.Row="6" Height="30" Click="saveSubject">Guardar</Button>
-
+            <Frame Name="subjectFormFrame">
+                
+            </Frame>
 
         </Grid>
         <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="25"/>
-            </Grid.RowDefinitions>
-            <ListView Name="subjectCollectionList" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" ItemsSource="{Binding subjectsCollection}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" />
-                        <GridViewColumn Header="Titulo" DisplayMemberBinding="{Binding Title}" />
-                        <GridViewColumn Header="Curso" DisplayMemberBinding="{Binding Course}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Button Grid.Column="0" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="removeSubject">Borrar</Button>
-            <Button Grid.Column="1" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="editSubject">Editar</Button>
-            <Button Grid.Column="2" Grid.Row="1" Width="50" HorizontalAlignment="Left" Click="newSubject">Nuevo</Button>
-
+            <Frame Name="subjectCollectionFrame"/>
         </Grid>
         <Button Grid.Column="1" Grid.Row="1" Width="50" HorizontalAlignment="Right" Click="returnMenuView">Volver</Button>
     </Grid>

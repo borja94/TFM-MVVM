@@ -1,37 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TFM_MVVM.Models;
 
 namespace TFM_MVVM.Presenters
 {
-    public class SubjectPresenter
+    public class SubjectFormPresenter
     {
         private readonly SubjectDao _subjectDao;
-        public SubjectPresenter()
+
+        public SubjectFormPresenter()
         {
             _subjectDao = new SubjectDao();
         }
 
         public void insertNewSubject(Subject subject)
         {
-           
             _subjectDao.insert(subject);
         }
 
         public void updateNewSubject(Subject subject)
         {
             _subjectDao.update(subject);
-
         }
-
-        public IEnumerable<Subject> getAllSubjects()
-        {
-            return _subjectDao.GetAll();
-        }
-
-        public void removeSubject(int id)
-        {
-            _subjectDao.remove(id);
-        }
-
     }
 }

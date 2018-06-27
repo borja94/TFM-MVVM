@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -28,7 +28,7 @@ namespace TFM_MVVM.Views
 
         private void returnMenuView(object sender, RoutedEventArgs e)
         {
-            Menu menuView = new Menu();
+            MainView menuView = new MainView();
             this.NavigationService.Navigate(menuView);
 
         }

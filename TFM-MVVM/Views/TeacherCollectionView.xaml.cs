@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,7 +25,6 @@ namespace TFM_MVVM.Views
     {
 
         public ObservableCollection<Teacher> teachersCollection { get; set; }
-        private int teacherSelectedId;
         private readonly TeacherCollectionPresenter teacherCollectionPresenter;
         private ITeacherFormView _teacherFormView;
 
@@ -35,15 +34,9 @@ namespace TFM_MVVM.Views
             teachersCollection = new ObservableCollection<Teacher>(teacherCollectionPresenter.getAllTeachers());
 
             DataContext = this;
-            teacherSelectedId = -1;
             InitializeComponent();
         }
-
-
-
-
-
-
+        
         private void removeTeacher(object sender, RoutedEventArgs e)
         {
             Teacher teacherAux = (Teacher)teacherCollectionList.SelectedItem;

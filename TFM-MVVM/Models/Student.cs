@@ -15,5 +15,6 @@ namespace TFM_MVVM.Models
         public string Name { get; set; }
         public string Surname { get; set; }    
         public virtual IEnumerable<Subject> Subjects { get; set; }
+        public int x {get;set;}
     }
 }
